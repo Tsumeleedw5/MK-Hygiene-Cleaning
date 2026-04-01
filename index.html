@@ -647,20 +647,78 @@
       background: var(--grey);
     }
 
+    /* Services — category layout */
+    .services-categories {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .service-category {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .service-category-header {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 2px solid rgba(76,175,80,0.2);
+    }
+
+    .service-category-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--navy);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .service-category-icon i {
+      font-size: 1.1rem;
+      color: var(--green);
+    }
+
+    .service-category-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    .service-category-title span {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.1rem;
+    }
+
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      gap: 1rem;
     }
 
     .service-card {
       background: var(--white);
       border-radius: var(--radius);
-      padding: 2rem 1.75rem;
+      padding: 1.4rem 1.5rem;
       border: 1px solid var(--border);
       transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
       position: relative;
       overflow: hidden;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
     }
 
     .service-card::before {
@@ -677,8 +735,8 @@
     }
 
     .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 32px rgba(26,58,92,0.12);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(26,58,92,0.11);
       border-color: rgba(76,175,80,0.3);
     }
 
@@ -687,14 +745,15 @@
     }
 
     .service-icon {
-      width: 56px;
-      height: 56px;
+      width: 42px;
+      height: 42px;
       background: rgba(76,175,80,0.1);
-      border-radius: 14px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1.25rem;
+      flex-shrink: 0;
+      margin-top: 2px;
       transition: background 0.25s;
     }
 
@@ -703,22 +762,27 @@
     }
 
     .service-icon i {
-      font-size: 1.4rem;
+      font-size: 1.1rem;
       color: var(--green);
+    }
+
+    .service-card-body {
+      flex: 1;
     }
 
     .service-name {
       font-family: 'Poppins', sans-serif;
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       font-weight: 700;
       color: var(--navy);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.3rem;
+      line-height: 1.3;
     }
 
     .service-desc {
-      font-size: 0.9rem;
+      font-size: 0.84rem;
       color: var(--text-light);
-      line-height: 1.65;
+      line-height: 1.6;
     }
 
     /* ============================================================
@@ -1380,6 +1444,10 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
+      .service-category-header {
+        flex-wrap: wrap;
+      }
+
       /* About */
       .about-grid {
         grid-template-columns: 1fr;
@@ -1600,49 +1668,177 @@
         </p>
       </div>
 
-      <div class="services-grid">
+      <div class="services-categories">
 
-        <!-- Service 1: House Deep Cleaning -->
-        <article class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-house-chimney"></i></div>
-          <h3 class="service-name">House Deep Cleaning</h3>
-          <p class="service-desc">Full home deep cleans that leave no corner untouched — kitchens, bathrooms, floors, and everything in between.</p>
-        </article>
+        <!-- ── CATEGORY 1: Residential Cleaning ── -->
+        <div class="service-category">
+          <div class="service-category-header">
+            <div class="service-category-icon"><i class="fa-solid fa-house-chimney"></i></div>
+            <h3 class="service-category-title">
+              <span>Category 01</span>
+              Residential Cleaning
+            </h3>
+          </div>
+          <div class="services-grid">
+            <article class="service-card">
+              <div class="service-icon"><i class="fa-solid fa-broom"></i></div>
+              <div class="service-card-body">
+                <h4 class="service-name">Standard Cleaning</h4>
+                <p class="service-desc">Regular maintenance cleans that keep your home fresh, tidy and consistently spotless.</p>
+              </div>
+            </article>
+            <article class="service-card">
+              <div class="service-icon"><i class="fa-solid fa-house-chimney"></i></div>
+              <div class="service-card-body">
+                <h4 class="service-name">Deep Cleaning</h4>
+                <p class="service-desc">A thorough top-to-bottom clean covering every surface, corner and hard-to-reach area in your home.</p>
+              </div>
+            </article>
+            <article class="service-card">
+              <div class="service-icon"><i class="fa-solid fa-truck-moving"></i></div>
+              <div class="service-card-body">
+                <h4 class="service-name">Move-In / Move-Out Cleaning</h4>
+                <p class="service-desc">Starting fresh or handing back the keys — we leave the property immaculate for the next chapter.</p>
+              </div>
+            </article>
+            <article class="service-card">
+              <div class="service-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+              <div class="service-card-body">
+                <h4 class="service-name">Post-Construction Cleaning</h4>
+                <p class="service-desc">Dust, debris and residue removed after building or renovation work so your space is truly move-in ready.</p>
+              </div>
+            </article>
+          </div>
+        </div>
 
-        <!-- Service 2: Carpet Cleaning -->
-        <article class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-rug"></i></div>
-          <h3 class="service-name">Carpet Cleaning</h3>
-          <p class="service-desc">Dirt, stains and odours removed professionally. Your carpets restored to fresh, clean condition.</p>
-        </article>
+        <!-- ── CATEGORY 2: Specialized Cleaning ── -->
+        <div class="service-category">
+          <div class="service-category-header">
+            <div class="service-category-icon"><i class="fa-solid fa-spray-can-sparkles"></i></div>
+            <h3 class="service-category-title">
+              <span>Category 02</span>
+              Specialized Cleaning
+            </h3>
+          </div>
+          <div class="services-grid">
+            <article class="service-card">
+              <div class="service-icon"><i class="fa-solid fa-rug"></i></div>
+              <div class="service-card-body">
+                <h4 class="service-name">Carpet Cleaning</h4>
+                <p class="service-desc">Dirt, stains and odours professionally extracted. Your carpets restored to fresh, clean condition.</p>
+              </div>
+            </article>
+            <article class="service-card">
+              <div class="service-icon"><i class="fa-solid fa-couch"></i></div>
+              <div class="service-card-body">
+                <h4 class="service-name">Couch & Upholstery Cleaning</h4>
+                <p class="service-desc">Couches, chairs and fabric surfaces deep-cleaned and refreshed using the right method for every material.</p>
+              </div>
+            </article>
+            <article class="service-card">
+              <div class="service-icon"><i class="fa-solid fa-bed"></i></div>
+              <div class="service-card-body">
+                <h4 class="service-name">Mattress Cleaning</h4>
+                <p class="service-desc">Allergens, dust mites and odours removed at the source — so you sleep clean every night.</p>
+              </div>
+            </article>
+          </div>
+        </div>
 
-        <!-- Service 3: Mattress Cleaning -->
-        <article class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-bed"></i></div>
-          <h3 class="service-name">Mattress Cleaning</h3>
-          <p class="service-desc">Sleep clean with a fully sanitised mattress. We remove allergens, dust mites and odours at the source.</p>
-        </article>
+        <!-- ── CATEGORY 3: Detail Cleaning ── -->
+        <div class="service-category">
+          <div class="service-category-header">
+            <div class="service-category-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <h3 class="service-category-title">
+              <span>Category 03</span>
+              Detail Cleaning
+            </h3>
+          </div>
+          <div class="services-grid">
+            <article class="service-card">
+              <div class="service-icon"><i class="fa-solid fa-temperature-low"></i></div>
+              <div class="service-card-body">
+                <h4 class="service-name">Fridge & Oven Cleaning</h4>
+                <p class="service-desc">Deep-cleaned inside and out — grease, grime and odours completely eliminated.</p>
+              </div>
+            </article>
+            <article class="service-card">
+              <div class="service-icon"><i class="fa-solid fa-box-open"></i></div>
+              <div class="service-card-body">
+                <h4 class="service-name">Inside Cupboards & Wardrobes</h4>
+                <p class="service-desc">Shelves wiped, interiors sanitised and everything left clean and organised.</p>
+              </div>
+            </article>
+            <article class="service-card">
+              <div class="service-icon"><i class="fa-solid fa-water"></i></div>
+              <div class="service-card-body">
+                <h4 class="service-name">Windows, Frames & Tracks</h4>
+                <p class="service-desc">Glass cleaned streak-free, frames wiped down and tracks cleared of dust and debris.</p>
+              </div>
+            </article>
+          </div>
+        </div>
 
-        <!-- Service 4: Upholstery Cleaning -->
-        <article class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-couch"></i></div>
-          <h3 class="service-name">Upholstery Cleaning</h3>
-          <p class="service-desc">Couches, rugs and fabric surfaces restored to their best. We treat every fabric with the right method and care.</p>
-        </article>
+        <!-- ── CATEGORY 4: Contract & Commercial Cleaning ── -->
+        <div class="service-category">
+          <div class="service-category-header">
+            <div class="service-category-icon"><i class="fa-solid fa-building"></i></div>
+            <h3 class="service-category-title">
+              <span>Category 04</span>
+              Contract &amp; Commercial Cleaning
+            </h3>
+          </div>
+          <div class="services-grid">
+            <article class="service-card">
+              <div class="service-icon"><i class="fa-solid fa-briefcase"></i></div>
+              <div class="service-card-body">
+                <h4 class="service-name">Offices (Daily / Weekly)</h4>
+                <p class="service-desc">Consistent, reliable office cleaning on a schedule that works for your business — daily or weekly.</p>
+              </div>
+            </article>
+            <article class="service-card">
+              <div class="service-icon"><i class="fa-solid fa-shop"></i></div>
+              <div class="service-card-body">
+                <h4 class="service-name">Shops</h4>
+                <p class="service-desc">Clean retail spaces that make the right impression on every customer who walks through the door.</p>
+              </div>
+            </article>
+            <article class="service-card">
+              <div class="service-icon"><i class="fa-solid fa-door-open"></i></div>
+              <div class="service-card-body">
+                <h4 class="service-name">Airbnb &amp; Guest Houses</h4>
+                <p class="service-desc">Turnaround cleans between guests — fast, thorough and always guest-ready.</p>
+              </div>
+            </article>
+          </div>
+        </div>
 
-        <!-- Service 5: Office & Commercial Cleaning -->
-        <article class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-building"></i></div>
-          <h3 class="service-name">Office & Commercial Cleaning</h3>
-          <p class="service-desc">Clean, professional spaces that make the right impression — on your team, your clients, and anyone who walks through the door.</p>
-        </article>
-
-        <!-- Service 6: Cleaning Chemicals & Staff -->
-        <article class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-spray-can-sparkles"></i></div>
-          <h3 class="service-name">Cleaning Chemicals & Staff</h3>
-          <p class="service-desc">We supply professional-grade chemicals and trained cleaning staff — ideal for businesses that need reliable, consistent support.</p>
-        </article>
+        <!-- ── CATEGORY 5: Home Support Services ── -->
+        <div class="service-category">
+          <div class="service-category-header">
+            <div class="service-category-icon"><i class="fa-solid fa-hands-holding-circle"></i></div>
+            <h3 class="service-category-title">
+              <span>Category 05</span>
+              Home Support Services
+            </h3>
+          </div>
+          <div class="services-grid">
+            <article class="service-card">
+              <div class="service-icon"><i class="fa-solid fa-shirt"></i></div>
+              <div class="service-card-body">
+                <h4 class="service-name">Laundry &amp; Ironing</h4>
+                <p class="service-desc">Clothes washed, dried and pressed properly — one less thing on your to-do list.</p>
+              </div>
+            </article>
+            <article class="service-card">
+              <div class="service-icon"><i class="fa-solid fa-bed-pulse"></i></div>
+              <div class="service-card-body">
+                <h4 class="service-name">Bed Making &amp; Linen Change</h4>
+                <p class="service-desc">Fresh linen fitted, beds made neatly — your bedroom looking and feeling its best.</p>
+              </div>
+            </article>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -1844,6 +2040,13 @@
               </div>
             </li>
             <li class="contact-detail-item">
+              <div class="contact-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="contact-detail-text">
+                <strong>Email</strong>
+                <span><a href="mailto:MakoLak279@gmail.com" style="color:inherit;">MakoLak279@gmail.com</a></span>
+              </div>
+            </li>
+            <li class="contact-detail-item">
               <div class="contact-detail-icon"><i class="fa-solid fa-clock"></i></div>
               <div class="contact-detail-text">
                 <strong>Hours</strong>
@@ -1898,12 +2101,31 @@
               <label for="service">Service Needed *</label>
               <select id="service" name="service" required>
                 <option value="" disabled selected>Select a service...</option>
-                <option value="house-deep-cleaning">House Deep Cleaning</option>
-                <option value="carpet-cleaning">Carpet Cleaning</option>
-                <option value="mattress-cleaning">Mattress Cleaning</option>
-                <option value="upholstery-cleaning">Upholstery Cleaning</option>
-                <option value="office-commercial-cleaning">Office & Commercial Cleaning</option>
-                <option value="chemicals-and-staff">Cleaning Chemicals & Staff</option>
+                <optgroup label="Residential Cleaning">
+                  <option value="standard-cleaning">Standard Cleaning</option>
+                  <option value="deep-cleaning">Deep Cleaning</option>
+                  <option value="move-in-out-cleaning">Move-In / Move-Out Cleaning</option>
+                  <option value="post-construction-cleaning">Post-Construction Cleaning</option>
+                </optgroup>
+                <optgroup label="Specialized Cleaning">
+                  <option value="carpet-cleaning">Carpet Cleaning</option>
+                  <option value="couch-upholstery-cleaning">Couch &amp; Upholstery Cleaning</option>
+                  <option value="mattress-cleaning">Mattress Cleaning</option>
+                </optgroup>
+                <optgroup label="Detail Cleaning">
+                  <option value="fridge-oven-cleaning">Fridge &amp; Oven Cleaning</option>
+                  <option value="cupboards-wardrobes">Inside Cupboards &amp; Wardrobes</option>
+                  <option value="windows-frames-tracks">Windows, Frames &amp; Tracks</option>
+                </optgroup>
+                <optgroup label="Contract &amp; Commercial Cleaning">
+                  <option value="office-cleaning">Offices (Daily / Weekly)</option>
+                  <option value="shop-cleaning">Shops</option>
+                  <option value="airbnb-guesthouse">Airbnb &amp; Guest Houses</option>
+                </optgroup>
+                <optgroup label="Home Support Services">
+                  <option value="laundry-ironing">Laundry &amp; Ironing</option>
+                  <option value="bed-linen-change">Bed Making &amp; Linen Change</option>
+                </optgroup>
               </select>
             </div>
 
@@ -2122,12 +2344,21 @@
 
       // Build the WhatsApp message
       const serviceLabels = {
-        'house-deep-cleaning':      'House Deep Cleaning',
-        'carpet-cleaning':          'Carpet Cleaning',
-        'mattress-cleaning':        'Mattress Cleaning',
-        'upholstery-cleaning':      'Upholstery Cleaning',
-        'office-commercial-cleaning': 'Office & Commercial Cleaning',
-        'chemicals-and-staff':      'Cleaning Chemicals & Staff'
+        'standard-cleaning':          'Standard Cleaning',
+        'deep-cleaning':              'Deep Cleaning',
+        'move-in-out-cleaning':       'Move-In / Move-Out Cleaning',
+        'post-construction-cleaning': 'Post-Construction Cleaning',
+        'carpet-cleaning':            'Carpet Cleaning',
+        'couch-upholstery-cleaning':  'Couch & Upholstery Cleaning',
+        'mattress-cleaning':          'Mattress Cleaning',
+        'fridge-oven-cleaning':       'Fridge & Oven Cleaning',
+        'cupboards-wardrobes':        'Inside Cupboards & Wardrobes',
+        'windows-frames-tracks':      'Windows, Frames & Tracks',
+        'office-cleaning':            'Offices (Daily / Weekly)',
+        'shop-cleaning':              'Shops',
+        'airbnb-guesthouse':          'Airbnb & Guest Houses',
+        'laundry-ironing':            'Laundry & Ironing',
+        'bed-linen-change':           'Bed Making & Linen Change'
       };
 
       const serviceLabel = serviceLabels[service] || service;
